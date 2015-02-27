@@ -16,7 +16,7 @@ import br.com.brumdev.service.DataService;
 public class DataController {
 	
 	@Autowired
-	DataService dataService;
+	private DataService dataService;
 
 	@RequestMapping("form")
 	public ModelAndView getForm(@ModelAttribute Employee employee) {

@@ -12,11 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.brumdev.dao.DataDao;
 import br.com.brumdev.domain.Employee;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class DataDaoImpl implements DataDao {
 
 	@Autowired
-	SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 
 	@Override
 	@Transactional
@@ -34,8 +36,7 @@ public class DataDaoImpl implements DataDao {
 	public List<Employee> getList() {
 		Session session = sessionFactory.openSession();
 		@SuppressWarnings("unchecked")
-		List<Employee> employeeList = session.createQuery("from Employee")
-				.list();
+		List<Employee> employeeList = session.createQuery("from Employee").list();
 		session.close();
 		return employeeList;
 	}

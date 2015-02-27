@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import br.com.brumdev.dao.DataDao;
 import br.com.brumdev.domain.Employee;
 import br.com.brumdev.service.DataService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DataServiceImpl implements DataService {
 	
 	@Autowired
-	DataDao dataDao;
+	private DataDao dataDao;
 
 	@Override
 	public int insertRow(Employee employee) {
